@@ -46,6 +46,6 @@ while true; do
   echo "Loop iteration: $counter"
   counter=$((counter + 1))
   echo "Current Base URL: $BASE_URL"
-  docker run --rm --name loadgen -e MY_IP="$MY_IP" loadgen:conf25
+  docker run --rm --name loadgen -e MY_IP="$MY_IP" -e BASE_URL="$BASE_URL" loadgen:conf25
   sleep 5 # Wait for 2 seconds
 done

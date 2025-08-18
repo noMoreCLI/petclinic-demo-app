@@ -34,7 +34,8 @@ echo "Previous instances stopped (if any)."
 # '> $LOG_FILE 2>&1' redirects both standard output and standard error to the specified log file.
 # '&' runs the command in the background, freeing up the terminal.
 echo "Starting application: java -jar $JAR_FILE"
-nohup java -jar "$JAR_FILE" > "$LOG_FILE" 2>&1 &
+#nohup java -jar "$JAR_FILE" > "$LOG_FILE" 2>&1 &
+nohup java -Dspring.profiles.active=mysql -jar "$JAR_FILE" > "$LOG_FILE" 2>&1 &
 
 # Step 3: Get the Process ID (PID) of the newly started application.
 # We use pgrep -f with a pattern that uniquely identifies our application.
